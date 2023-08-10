@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="../static/estilosLogin.css">
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Bienvenido</h1>
+    <form action="{{url_for ('login')}}" method="POST">
+    
+      <input type="email" id="correo" name="email" placeholder="Correo Electronico" required>
+
+      <input type="password" id="password" name="password" placeholder="Contraseña" required>
+    <div class="button">
+      
+      <button type="submit">Iniciar sesión</button>
+
+      <button type="button" onclick="window.location.href='{{url_for('registerf')}}'">Registrarse</button>
+    </div>
+    </form>
+  </div>
+
+  {% with mensajes = get_flashed_messages(with_categories=True) %}
+    {% if mensajes %}
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                {% for category, message in mensajes %}
+                    {% if category == 'success' %}
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Exito',
+                            text: "{{ message }}",
+                            showConfirmButton: true,
+                            timer: 5000
+                        });
+                    {% else %}
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: 'Error',
+                            text: "{{ message }}",
+                            showConfirmButton: true,
+                            timer: 5000
+                        });
+                    {% endif %}
+                {% endfor %}
+            });
+        </script>
+    {% endif %}
+{% endwith %}
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.20/dist/sweetalert2.all.min.js"></script>
+</body>
+</html>

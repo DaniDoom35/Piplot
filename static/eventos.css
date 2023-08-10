@@ -1,0 +1,46 @@
+/* body {
+    background: linear-gradient(135deg, #80ffdb, #b2ffab, #94d82d);
+    font-family: Arial, sans-serif;
+} */
+
+.container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 15px 50px;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgb(10, 6, 223);
+}
+
+h1 {
+   color: #035757;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="date"],
+form input[type="time"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
+
+form textarea {
+    height: 120px;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #09e099;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

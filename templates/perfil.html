@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil</title>
+    <link rel="stylesheet" type="text/css" href="../static/perfil.css"
+</head>
+<body>
+  {% include 'menu.html'%}
+    <div class="container">
+            <h2>Mi Perfil</h2>
+            <form action="{{ url_for('registroPerfilf') }}" method="POST" enctype="multipart/form-data">
+                <label for="institution">Institución:</label>
+                <input type="text" id="institution" name="institution" placeholder="Ingrese su institución" required>
+
+                <label for="major">Carrera:</label>
+                <input type="text" id="major" name="major" placeholder="Ingrese su carrera" required>
+
+                <label for="semester">Cuatrimestre:</label>
+                <input type="number" id="semester" name="semester" placeholder="Ingrese su cuatrimestre" required>
+                
+                <label for="photo" class="photo-label">Agrega una imagen</label>
+                <input type="file" name="photo" class="photo-input" accept="image/*" onchange="updateFileName(this)" required>
+              
+
+             <button type="submit">Guardar</button>
+            </form>
+    
+    </div>
+    <center>
+    {%with mensajes= get_flashed_messages() %}
+  {% if mensajes%}
+    {%for msj in mensajes%}
+      <h3>{{ msj }}</h3>
+  {%endfor%}
+ {% endif %}
+{%endwith%}
+</center>
+</body>
+</html>
